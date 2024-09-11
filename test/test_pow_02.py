@@ -1,4 +1,4 @@
-from pow_01 import power
+from pow_02 import power
 
 
 def test_2_3():
