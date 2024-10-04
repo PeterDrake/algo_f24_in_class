@@ -4,6 +4,12 @@ def count():
 
 count.n = 0
 
+
+
+
+
+
+
 class Tricky:
     def __init__(self):
         self.x = 3
