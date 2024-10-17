@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Node:
     def __init__(self, key, left=None, right=None):
         self.key = key
@@ -11,14 +14,7 @@ class Node:
         return str(self)
 
 
-t = Node('A',
-         Node('B', Node('D', right=Node('G'))),
-         Node('C', Node('E', Node('H'), Node('I')),
-              Node('F', Node('J'))))
-
-print(t)
-
-from collections import deque
+t = Node('C', Node('F', Node('D')), Node('B', Node('A', Node('G'), Node('E'))))
 
 
 def level_order(t):
@@ -37,36 +33,35 @@ def level_order(t):
 
 
 def preorder(t):
-    def f(n):
-        if n is None:
-            return
-        result.append(n.key)
-        f(n.left)
-        f(n.right)
     result = []
+
+    def f(n):
+        if n:
+            result.append(n.key)
+            f(n.left)
+            f(n.right)
     f(t)
     return result
-
 
 def inorder(t):
-    def f(n):
-        if n is None:
-            return
-        f(n.left)
-        result.append(n.key)
-        f(n.right)
     result = []
+
+    def f(n):
+        if n:
+            f(n.left)
+            result.append(n.key)
+            f(n.right)
     f(t)
     return result
 
-
 def postorder(t):
-    def f(n):
-        if n is None:
-            return
-        f(n.left)
-        f(n.right)
-        result.append(n.key)
     result = []
+
+    def f(n):
+        if n:
+            f(n.left)
+            f(n.right)
+            result.append(n.key)
+
     f(t)
     return result
