@@ -41,7 +41,7 @@ class BST:
 
     def _remove_min(self, node):
         """
-        :return: A version of node and its descendants, but with the smallest key remove.
+        :return: A version of node and its descendants, but with the smallest key removed.
         """
         if node.left is None:
             return node.right
