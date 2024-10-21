@@ -35,6 +35,7 @@ class RedBlackBST:
         node.right = x.left
         x.left = node
         x.color = node.color
+        node.color = self._Node.RED
         return x
 
     def _rotate_right(self, node):
@@ -42,6 +43,7 @@ class RedBlackBST:
         node.left = x.right
         x.right = node
         x.color = node.color
+        node.color = self._Node.RED
         return x
 
     def _flip_colors(self, node):
