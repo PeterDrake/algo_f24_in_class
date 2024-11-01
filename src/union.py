@@ -12,6 +12,12 @@ class WeightedQuickUnion():
             p = self.parent[p]
         return p
 
+    def find(self, p):
+        if p == self.parent[p]:
+            return p
+        self.parent[p] = self.find(self.parent[p])
+        return self.parent[p]
+    
     def connected(self, p, q):
         return self.find(p) == self.find(q)
 
