@@ -8,3 +8,11 @@ class Digraph:
 
     def neighbors(self, v):
         return self.adj[v]
+
+
+def transpose(g):
+    result = Digraph(len(g.adj))
+    for v in range(len(g.adj)):
+        for w in g.neighbors(v):
+            result.add_edge(w, v)
+    return result
